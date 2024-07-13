@@ -6,7 +6,10 @@ export const LayoutComponent = ({ children }) => {
     return (
         <>
             <NavbarComponent />
-            {children}
+            <div className="body-content">
+                {children}
+            </div>
+            
             <FooterComponent />
         </>
     )
