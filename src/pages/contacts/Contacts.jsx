@@ -1,29 +1,24 @@
 // pages/ContactListPage.jsx
-import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import ContactCard from '../../components/contactCard/ContactCard';
 
 import './contacts.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { contactSelector, fetchContacts } from '../../redux/reducers/contactReducer';
 
 const ContactListPage = () => {
-  const [contacts, setContacts] = useState([
-    { id: 1, name: 'John Doe', phone: '123-456-7890', email: 'john@example.com' },
-    { id: 2, name: 'Jane Smith', phone: '987-654-3210', email: 'jane@example.com' },
-    { id: 2, name: 'Jane Smith', phone: '987-654-3210', email: 'jane@example.com' },
-    { id: 2, name: 'Jane Smith', phone: '987-654-3210', email: 'jane@example.com' },
-    { id: 2, name: 'Jane Smith', phone: '987-654-3210', email: 'jane@example.com' },
-    // { id: 2, name: 'Jane Smith', phone: '987-654-3210', email: 'jane@example.com' }
-    // Add more contacts here
-  ]);
 
-  const handleUpdate = (id) => {
-    console.log('Update contact with id:', id);
-    // Add update logic here
-  };
+  const {contacts} = useSelector(contactSelector);
+  const dispatch = useDispatch();
 
-  const handleDelete = (id) => {
-    setContacts(contacts.filter(contact => contact.id !== id));
-  };
+  useEffect(() => {
+
+    dispatch(fetchContacts());
+
+  }, [dispatch])
+
+
 
   return (
     <Container className="mt-5 contact-list-page">
@@ -35,8 +30,8 @@ const ContactListPage = () => {
           <ContactCard
             key={contact.id}
             contact={contact}
-            onUpdate={handleUpdate}
-            onDelete={handleDelete}
+            // onUpdate={handleUpdate}
+            // onDelete={handleDelete}
           />
         ))}
       </div>
