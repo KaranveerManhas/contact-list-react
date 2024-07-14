@@ -6,19 +6,24 @@ import ContactCard from '../../components/contactCard/ContactCard';
 import './contacts.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { contactSelector, fetchContacts } from '../../redux/reducers/contactReducer';
+import { LoaderComponent } from '../../components/loader/LoaderComponent';
 
 const ContactListPage = () => {
 
-  const {contacts} = useSelector(contactSelector);
+  const {contacts, loading} = useSelector(contactSelector);
   const dispatch = useDispatch();
 
   useEffect(() => {
 
-    dispatch(fetchContacts());
+    setTimeout(() => {
+      dispatch(fetchContacts());
+    }, 3000);
 
   }, [dispatch])
 
-
+  if (loading){
+    return <LoaderComponent />
+  }
 
   return (
     <Container className="mt-5 contact-list-page">

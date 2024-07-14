@@ -1,7 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    contacts: []
+    contacts: [],
+    loading: true,
+    error: null
 }
 
 export const fetchContacts = createAsyncThunk(

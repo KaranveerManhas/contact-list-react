@@ -8,6 +8,7 @@ import {Home} from './pages/home/Home';
 import { LayoutComponent } from './components/layout/Layout';
 import Contacts from './pages/contacts/Contacts';
 import ContactForm from './pages/contactForm/ContactForm';
+import NotFound from './pages/not_found/NotFound';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/contacts' element={<Contacts />} />
             <Route path='/add-contact' element={<ContactForm />} />
+            <Route path='*' element={<NotFound />} />
           </Routes>
         </LayoutComponent>
       </div>
