@@ -27,7 +27,7 @@ export const NavbarComponent = () => {
         <>
         <Navbar expand='lg' className='bg-dark navbar-dark'>
             <Container>
-                <Navbar.Brand href="#home" className='fw-bold' onClick={handleNavigate}>
+                <Navbar.Brand href="#" className='fw-bold' onClick={handleNavigate}>
                     <img 
                     src="/images/contact.png" 
                     alt="ContactList Icon"
@@ -40,9 +40,9 @@ export const NavbarComponent = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                        <Nav.Link href="#home" onClick={handleNavigate}>Home</Nav.Link>
-                        <Nav.Link href="#link" onClick={handleNavigate}>Contacts</Nav.Link>
-                        <Nav.Link href="#" onClick={handleNavigate}>Add Contacts</Nav.Link>
+                        <Nav.Link href="" onClick={handleNavigate}>Home</Nav.Link>
+                        <Nav.Link href="" onClick={handleNavigate}>Contacts</Nav.Link>
+                        <Nav.Link href="" onClick={handleNavigate}>Add Contacts</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

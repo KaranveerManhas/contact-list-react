@@ -13,4 +13,18 @@ html, body, .App {
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow: auto;
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: grey;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #000;
+  border-radius: 10px;
 }

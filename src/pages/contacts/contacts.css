@@ -1,0 +1,9 @@
+.contact-list-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.contact-list-container{
+    flex: 1;
+}
