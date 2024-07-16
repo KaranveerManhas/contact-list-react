@@ -124,6 +124,11 @@ const contactSlice = createSlice({
                 state.contacts = updatedContacts;
                 state.tempContacts = updatedContacts;
             })
+            .addCase(deleteContact.fulfilled, (state, action) => {
+                const updatedContacts = state.contacts.filter(contact => contact.id!== action.payload);
+                state.contacts = updatedContacts;
+                state.tempContacts = updatedContacts;
+            })
             
     }
 })

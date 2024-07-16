@@ -5,7 +5,7 @@ import ContactCard from '../../components/contactCard/ContactCard';
 
 import './contacts.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { contactSelector, fetchContacts, updateContact } from '../../redux/reducers/contactReducer';
+import { contactSelector, deleteContact, fetchContacts, updateContact } from '../../redux/reducers/contactReducer';
 import { LoaderComponent } from '../../components/loader/LoaderComponent';
 import { UpdateContactForm } from '../../components/updateContact/UpdateContact';
 
@@ -40,6 +40,11 @@ const ContactListPage = () => {
     setSelectedContact(null);
   }
 
+  const handleDelete = (id) => {
+    dispatch(deleteContact(id));
+
+  }
+
   if (loading){
     return <LoaderComponent />
   }
@@ -57,6 +62,7 @@ const ContactListPage = () => {
               contact={contact}
               onUpdate={handleShowUpdateForm}
               setShowUpdateForm={setShowUpdateForm}
+              handleDelete={handleDelete}
             />
           ))}
         </div>
