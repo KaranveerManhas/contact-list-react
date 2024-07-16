@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 
 import './contactForm.css';
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../redux/reducers/contactReducer';
+import { useNavigate } from 'react-router-dom';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +14,9 @@ const ContactForm = () => {
     email: ''
   });
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -18,8 +24,10 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Data:', formData);
-    // Add logic to handle form submission, e.g., save contact data
+    
+    dispatch(addContact(formData));
+    navigate('/contacts');
+
   };
 
   return (
@@ -70,7 +78,7 @@ const ContactForm = () => {
                 <Button variant="dark" type="submit" className="form-btn me-4 rounded-4">
                 Add Contact
                 </Button>
-                <Button variant="danger" type="reset" className="form-btn rounded-4">
+                <Button variant="danger" type="reset" className="form-btn rounded-4" onClick={e=>navigate('/contacts')}>
                 Cancel
                 </Button>
             </div>

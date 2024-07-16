@@ -1,6 +1,9 @@
 import { Card, Button } from 'react-bootstrap';
 
-const ContactCard = ({ contact }) => {
+const ContactCard = ({ contact, onUpdate }) => {
+
+
+
   return (
     <Card className="mb-3 rounded-3 bg-body-tertiary">
       <Card.Body className='d-flex justify-content-between'>
@@ -10,7 +13,7 @@ const ContactCard = ({ contact }) => {
           <p>Email: {contact.email}</p>
         </div>
         <div className="d-flex align-items-center">
-          <Button variant="dark" className="me-2 rounded-4" >
+          <Button variant="dark" className="me-2 rounded-4" onClick={e=>onUpdate(contact)} >
             Update
           </Button>
           <Button variant="danger" className='rounded-4' >
