@@ -1,33 +1,34 @@
-// components/AddContactForm.jsx
+// Import necessary dependencies from React, React Bootstrap, React Redux, and React Router
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-
-import './contactForm.css';
+import './contactForm.css'; // Import custom CSS
 import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/reducers/contactReducer';
 import { useNavigate } from 'react-router-dom';
 
 const ContactForm = () => {
+  // Initialize state for form data
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: ''
   });
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch(); // Hook to dispatch actions to the Redux store
+  const navigate = useNavigate(); // Hook to navigate programmatically
 
+  // Handle form field changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: value }); // Update form data state
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default form submission behavior
     
-    dispatch(addContact(formData));
-    navigate('/contacts');
-
+    dispatch(addContact(formData)); // Dispatch action to add a new contact
+    navigate('/contacts'); // Navigate to contacts page
   };
 
   return (
@@ -75,12 +76,12 @@ const ContactForm = () => {
               />
             </Form.Group>
             <div className="text-center">
-                <Button variant="dark" type="submit" className="form-btn me-4 rounded-4">
+              <Button variant="dark" type="submit" className="form-btn me-4 rounded-4">
                 Add Contact
-                </Button>
-                <Button variant="danger" type="reset" className="form-btn rounded-4" onClick={e=>navigate('/contacts')}>
+              </Button>
+              <Button variant="danger" type="reset" className="form-btn rounded-4" onClick={e => navigate('/contacts')}>
                 Cancel
-                </Button>
+              </Button>
             </div>
           </Form>
         </Col>
