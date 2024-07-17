@@ -79,7 +79,7 @@ const ContactListPage = () => {
         </div>
       </Container>
 
-      {/* Update contact form */}
+      
       {showUpdateForm && <UpdateContactForm
         showUpdateForm={showUpdateForm}
         onClose={handleCloseUpdateForm}

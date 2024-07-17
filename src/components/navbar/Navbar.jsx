@@ -48,7 +48,7 @@ export const NavbarComponent = () => {
                             {/* Navigation links */}
                             <Nav.Link href="" onClick={handleNavigate}>Home</Nav.Link>
                             <Nav.Link href="" onClick={handleNavigate}>Contacts</Nav.Link>
-                            <Nav.Link href="" onClick={handleNavigate}>Add Contacts</Nav.Link>
+                            <Nav.Link href="" onClick={handleNavigate}>Add Contact</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
